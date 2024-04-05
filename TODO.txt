@@ -1,0 +1,5 @@
+Desired functionality:
+- view and sort currently pending orders by priority
+- view order details (itemized prices, total price, client, etc)
+- edit order details, change order status
+- view order history of a client

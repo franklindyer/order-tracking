@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .important { color: #336699; }
+  </style>
+{% endblock %}
+{% block content %}
+    <h1>{{ product["name"] }}</h1>
+    
+    {% if "notes" in product %}
+    <span>{{ product["notes"] }}</span> <br>
+    {% endif %}
+
+    {% if "price" in product %}
+    <span>Price per unit: {{ product["price"] }}</span> <br>
+    {% endif %}
+
+    <br>
+{% endblock %}

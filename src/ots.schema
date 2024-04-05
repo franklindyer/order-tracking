@@ -17,7 +17,7 @@ CREATE TABLE orderItems (
 
 CREATE TABLE products (
     productID   INTEGER PRIMARY KEY,
-    name        TEXT,
+    name        TEXT NOT NULL,
     price       INTEGER,
     notes       TEXT
 );

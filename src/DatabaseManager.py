@@ -49,3 +49,6 @@ class DatabaseManager:
 
     def getClient(self, clientID):
         return self.query(SQL_GET_CLIENT, clientID)
+
+    def getProduct(self, productID):
+        return self.query(SQL_GET_PRODUCT, productID)

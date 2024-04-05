@@ -13,6 +13,7 @@ RUN mkdir $AP/templates
 RUN mkdir $AP/static
 
 COPY ./server.py $AP/
+COPY ./src/* $AP/
 
 WORKDIR $AP
 

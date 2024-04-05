@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .important { color: #336699; }
+  </style>
+{% endblock %}
+{% block content %}
+    <h1>{{ client["name"] }}</h1>
+
+    {% if "company" in client %}
+    <span>{{ client["company"] }}</span> <br>
+    {% endif %}
+
+    {% if "email" in client %}
+    <span>Email: <a href="mailto:{{ client['email'] }}">{{ client["email"] }}</a></span> <br>
+    {% endif %}
+
+    {% if "phone" in client %}
+    <span>Phone: {{ client['phone'] }}</span> <br>
+    {% endif %}
+
+    <br>
+{% endblock %}

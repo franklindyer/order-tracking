@@ -5,3 +5,15 @@ SQL_GET_CLIENT = """
 SQL_GET_PRODUCT = """
     SELECT name, price, notes FROM products WHERE productID = ?
 """
+
+SQL_GET_ORDER = """
+    SELECT O.name as name, O.clientID as clientID, O.placed as placed, O.status as status, O.notes as notes, C.name as clientName
+    FROM orders O JOIN clients C ON O.clientID = C.clientID
+    WHERE O.orderID = ?
+"""
+
+SQL_GET_ORDER_ITEMS = """
+    SELECT I.productID as productID, I.quantity as quantity, P.name as name, I.quantity*P.price as price
+    FROM orderItems I JOIN products P ON I.productID = P.productID
+    WHERE I.orderID = ?
+"""

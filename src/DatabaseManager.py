@@ -48,7 +48,12 @@ class DatabaseManager:
 
 
     def getClient(self, clientID):
-        return self.query(SQL_GET_CLIENT, clientID)
+        return self.query(SQL_GET_CLIENT, clientID)[0]
 
     def getProduct(self, productID):
-        return self.query(SQL_GET_PRODUCT, productID)
+        return self.query(SQL_GET_PRODUCT, productID)[0]
+
+    def getOrder(self, orderID):
+        order = self.query(SQL_GET_ORDER, orderID)[0]
+        order["items"] = self.query(SQL_GET_ORDER_ITEMS, orderID)
+        return order

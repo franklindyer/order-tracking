@@ -27,4 +27,9 @@ def orderInfoPage(orderID):
     order = dbman.getOrder(int(orderID))
     return render_template("order.html", order=order, **formatters)
 
+@app.route("/orders")
+def orderSearchPage():
+    orders = dbman.getOrders()
+    return render_template("orders.html", orders=orders, **formatters)
+
 app.run(host="0.0.0.0", port=8080)

@@ -17,3 +17,11 @@ SQL_GET_ORDER_ITEMS = """
     FROM orderItems I JOIN products P ON I.productID = P.productID
     WHERE I.orderID = ?
 """
+
+SQL_SEARCH_ORDERS = """
+    SELECT O.orderID as orderID, O.name as name, O.clientID as clientID, O.placed as placed, O.status as status, C.name as clientName
+    FROM orders O JOIN clients C ON O.clientID = C.clientID
+    WHERE TRUE
+    ORDER BY placed
+    DESC LIMIT 10
+"""

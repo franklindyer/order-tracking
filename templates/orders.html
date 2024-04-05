@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .important { color: #336699; }
+
+    table {
+        table-layout: fixed;
+        border-collapse: collapse;
+        border: 2px solid black;
+        margin: 10px;
+    }
+
+    td {
+        padding: 5px;
+    }
+
+    tr:nth-child(even) { background-color: #D6EEEE; }
+  </style>
+{% endblock %}
+{% block content %}
+    <h1>Orders</h1>
+
+    <table>
+    <tr>
+        <td>Order name</td>
+        <td>Client</td>
+        <td>Status</td>
+    </tr>
+    {% for order in orders %}
+    <tr>
+        <td><a href="/order/{{ order['orderID'] }}">{{ order["name"] }}</a></td>
+        <td><a href="/client/{{ order['clientID'] }}">{{ order["clientName"] }}</a></td>
+        <td>{{ order["status"] }}</td>
+    </tr>
+    {% endfor %}
+    </table>
+
+    <br>
+{% endblock %}

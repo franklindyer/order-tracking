@@ -57,3 +57,7 @@ class DatabaseManager:
         order = self.query(SQL_GET_ORDER, (orderID,))[0]
         order["items"] = self.query(SQL_GET_ORDER_ITEMS, (orderID,))
         return order
+
+    def getOrders(self):
+        orders = self.query(SQL_SEARCH_ORDERS)
+        return orders

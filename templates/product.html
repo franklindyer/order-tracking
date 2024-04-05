@@ -14,7 +14,7 @@
     {% endif %}
 
     {% if "price" in product %}
-    <span>Price per unit: {{ product["price"] }}</span> <br>
+    <span>Price per unit: {{ formatCents(product["price"]) }}</span> <br>
     {% endif %}
 
     <br>

@@ -3,13 +3,14 @@ CREATE TABLE orders (
     name        TEXT,
     clientID    INTEGER,
     placed      TEXT DEFAULT CURRENT_TIMESTAMP,
-    fulfilled   TEXT DEFAULT CURRENT_TIMESTAMP,
-    status      VARCHAR(100),
+    fulfilled   TEXT DEFAULT NULL,
+    status      VARCHAR(100) DEFAULT "unfulfilled",
     notes       TEXT
 );
 
 CREATE TABLE orderItems (
     itemID      INTEGER PRIMARY KEY,
+    productID   INTEGER NOT NULL,
     orderID     INTEGER NOT NULL,
     quantity    INTEGER NOT NULL
 );

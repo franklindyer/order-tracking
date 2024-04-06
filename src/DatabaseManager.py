@@ -59,5 +59,14 @@ class DatabaseManager:
         return order
 
     def getOrders(self):
-        orders = self.query(SQL_SEARCH_ORDERS)
+        return self.getOrdersQuery({})
+
+    def getOrdersQuery(self, params):
+        defaults = {
+            "orderBy": 0,
+            "maxResults": 5
+        }
+        defaults.update(params)
+        params = defaults
+        orders = self.query(SQL_SEARCH_ORDERS, (int(params["orderBy"]), int(params["maxResults"])))
         return orders

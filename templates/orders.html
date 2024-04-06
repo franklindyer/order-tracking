@@ -5,11 +5,20 @@
   <style type="text/css">
     .important { color: #336699; }
 
+    label {
+        display: block;
+        margin-top: 5px;
+    }
+
     table {
         table-layout: fixed;
         border-collapse: collapse;
         border: 2px solid black;
         margin: 10px;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
     }
 
     td {
@@ -21,6 +30,19 @@
 {% endblock %}
 {% block content %}
     <h1>Orders</h1>
+
+    <form method="GET">
+        <label for="orderByField">Order results by:</label>
+        <select id="orderByField" name="orderBy">
+            <option value="1">Date placed</option>
+            <option value="2">Total price</option>
+        </select>
+        
+        <label for="maxResultsField">Maximum number of results:</label>
+        <input id="maxResultsField" name="maxResults" type="number"/>
+
+        <input type="submit" value="Submit"/>
+    </form>
 
     <table>
     <tr>

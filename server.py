@@ -1,5 +1,5 @@
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import sys
 
 from DatabaseManager import *
@@ -7,6 +7,8 @@ from formatting import formatters
 
 app = Flask(__name__)
 dbman = DatabaseManager("./volumes/ots.db")
+
+print()
 
 @app.route("/")
 def hello_world():
@@ -29,7 +31,7 @@ def orderInfoPage(orderID):
 
 @app.route("/orders")
 def orderSearchPage():
-    orders = dbman.getOrders()
+    orders = dbman.getOrdersQuery(request.args.to_dict())
     return render_template("orders.html", orders=orders, **formatters)
 
 app.run(host="0.0.0.0", port=8080)

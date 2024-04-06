@@ -19,7 +19,8 @@ SQL_GET_ORDER_ITEMS = """
 """
 
 SQL_SEARCH_ORDERS = """
-    SELECT O.orderID as orderID, O.name as name, O.clientID as clientID, O.placed as placed, O.status as status, C.name as clientName
+    SELECT O.orderID as orderID, O.name as name, O.clientID as clientID, O.placed as placed, O.status as status, C.name as clientName,
+           (SELECT sum(P.price * I.quantity) FROM products P JOIN orderItems I ON I.productID = P.productID WHERE I.orderID = O.orderID) as price
     FROM orders O JOIN clients C ON O.clientID = C.clientID
     WHERE TRUE
     ORDER BY placed

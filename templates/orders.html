@@ -24,14 +24,16 @@
 
     <table>
     <tr>
-        <td>Order name</td>
-        <td>Client</td>
-        <td>Status</td>
+        <td><b>Order name</b></td>
+        <td><b>Client</b></td>
+        <td><b>Price</b></td>
+        <td><b>Status</b></td>
     </tr>
     {% for order in orders %}
     <tr>
         <td><a href="/order/{{ order['orderID'] }}">{{ order["name"] }}</a></td>
         <td><a href="/client/{{ order['clientID'] }}">{{ order["clientName"] }}</a></td>
+        <td>{{ formatCents(order['price']) }}</td>
         <td>{{ order["status"] }}</td>
     </tr>
     {% endfor %}

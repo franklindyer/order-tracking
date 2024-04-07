@@ -64,10 +64,11 @@ class DatabaseManager:
     def getOrdersQuery(self, params):
         defaults = {
             "nameSearch": "",
+            "clientSearch": "",
             "orderBy": 0,
             "maxResults": 5
         }
         defaults.update(params)
         params = defaults
-        orders = self.query(SQL_SEARCH_ORDERS, (params["nameSearch"], int(params["orderBy"]), int(params["maxResults"]),))
+        orders = self.query(SQL_SEARCH_ORDERS, (params["nameSearch"], params["clientSearch"], int(params["orderBy"]), int(params["maxResults"]),))
         return orders

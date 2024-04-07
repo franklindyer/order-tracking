@@ -32,6 +32,9 @@
     <h1>Orders</h1>
 
     <form method="GET">
+        <label for="nameSearchField">Order name:</label>
+        <input id="nameSearchField" name="nameSearch" type="text"/>
+
         <label for="orderByField">Order results by:</label>
         <select id="orderByField" name="orderBy">
             <option value="1">Date placed</option>
@@ -39,7 +42,7 @@
         </select>
         
         <label for="maxResultsField">Maximum number of results:</label>
-        <input id="maxResultsField" name="maxResults" type="number"/>
+        <input id="maxResultsField" name="maxResults" type="number" value=10 min=0 max=100 />
 
         <input type="submit" value="Submit"/>
     </form>
